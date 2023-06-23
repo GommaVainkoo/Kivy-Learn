@@ -1,0 +1,179 @@
+#:set s dp(150)
+CanvaExample4:
+<CanvaExample7>:
+    orientation:"horizontal"
+    Widget:
+        canvas:
+            Color:
+                rgb:1,0,0
+            Rectangle:
+                size:self.size
+                pos:self.pos
+    Widget:
+        canvas:
+            Color:
+                rgb:1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+    Widget:
+        canvas:
+            Color:
+                rgb:0,0,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+<CanvaExample5>:
+    BoxLayout:
+        size:root.size
+        Button:
+            text:"A"
+        RelativeLayout :
+            canvas:
+                Color:
+                    rgb:0,0,1
+                Rectangle:
+                    size:self.size
+                    #pos:self.pos required when relative layout is not there
+
+<CanvaExample3>:
+    Button:
+        on_press:root.move_rect()
+        text:"Move Rect"
+        pos:"200dp","80dp"
+
+<CanvaExample2>:
+    canvas:
+        Color:
+            rgba:1,1,0.5,.75
+        Line:
+            circle:(self.width/2,self.height/2,100)#x,y,radius
+            width:2
+        Line:
+            ellipse:(self.width/2,self.height/2,100,50)#x,y,radiusx,radiusy
+            width:2
+<CanvaExample1>:
+    canvas:
+        Line:
+            points:(0,self.height/2,self.width,self.height/2)
+            width:2
+        Line:
+            points:(self.width/2,self.height,self.width/2,0)
+            width:2
+<CanvaExample>:
+    canvas:
+        Rectangle:
+            pos:self.center_x-s/2,self.center_y-s/2
+            size: s,s
+        Ellipse:
+            pos:self.center
+            size:s,s/2
+        Line:
+            points:(0,0, self.width/4,100, self.width/2,0, self.width*3/4,100, self.width,0)
+
+<PageLayouts>:
+    cols:2
+    rows:4
+    ToggleButton:
+        text:"Off"
+        on_state:root.on_toggle_state(self)
+
+    Button:
+        text:"Click the button u pussy"
+        on_press:root.on_presss()
+        disabled: root.code
+    Label:
+        text: root.text_on
+        font_name:"fonts/Lcd.ttf"
+        font_size:"80dp"
+        color:1,.5,1,1
+    Slider:
+
+        min:0
+        max:200
+        value:100
+        on_value:root.get_slider_value(self)
+        disabled:not switch1.active
+    Label:
+        text:root.slider_value
+        font_name:"fonts/Lcd.ttf"
+        font_size:"80dp"
+    Switch:
+        id:switch1
+    AnchorLayout1:
+        anchor_x:"center"
+        anchor_y:"center"
+        TextInput:
+            text:"Type Here!!"
+            size_hint:None,None
+            height:"40dp"
+            width:"200dp"
+            multiline:False
+            on_text_validate:root.on_text_enter(self)
+    Label:
+        text:root.message
+<ScrollLayoutExample@ScrollView>:
+    StackLayoutExample:
+
+        size_hint:1,None
+        height:self.minimum_height
+
+<GridLayoutExample>:
+    spacing:"10dp"
+    cols:2
+    Button:
+        text:"Button1"
+    Button:
+        text:"Button2"
+    LayoutExample:
+    Button:
+        text:"Button4"
+
+
+
+<LayoutExample>:
+    orientation:"vertical"
+    spacing:"10dp"
+    BoxLayout:
+        spacing:"5dp"
+        Label:
+            text:"Label1"
+            color:1,0,0,.25
+            #size_hint:.5,.5
+            #size:"591dp","12dp"
+            #pos_hint:{"center_x":.5}
+        Label:
+            text:"Label2"
+            color:1,0,0,.25
+            #size_hint:.5,.5
+            #size:"591dp","12dp"
+            #pos_hint:{"center_x":.5}
+        Label:
+            text:"Label3"
+            color:1,0,0,.25
+            #size_hint:.5,.5
+            #size:"591dp","12dp"
+            #pos_hint:{"center_x":.5}
+    BoxLayout:
+        spacing:"5dp"
+        Button:
+            text:"Button1"
+            color:1,0,0,.25
+        Button:
+            text:"Button2"
+            color:1,0,0,.25
+        Button:
+            text:"Button3"
+            color:1,0,0,.25
+
+<MainWidget>:
+    Button:
+        text: "Hello"
+        size: "100dp","80dp"
+        pos: "100dp","200dp"
+        color: 1,0,0,.25
+    Label :
+        text: "Hello2"
+        size: "200dp","80dp"
+        pos: "75dp","300dp"
+        color: 0,0,1,.5
